@@ -34,9 +34,6 @@ Feed context + task into an LLM
 Return and save the generated fix
 
 🧱 Architecture
-mathematica
-Copy
-Edit
            ┌─────────────┐
            │  Query Input│◄────────────┐
            └─────┬───────┘             │
