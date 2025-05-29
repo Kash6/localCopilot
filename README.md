@@ -5,55 +5,20 @@ Context-aware code editing using FAISS, reranking, and quantized LLM inference
 🔍 Overview
 This project is a retrieval-augmented generation (RAG) pipeline that assists developers in generating code fixes across large repositories. It combines:
 
-🔎 Semantic code search using FAISS and SentenceTransformers
-
-🧠 Code-aware reranking with CrossEncoder
-
-🤖 LLM-based fix generation using a quantized transformer model (e.g., Deepseek, Mistral, or Meta's LLaMA)
-
-🖥️ Streamlit UI for interactive prompt construction and live editing
-
+Semantic code search using FAISS and SentenceTransformers
+Code-aware reranking with CrossEncoder
+LLM-based fix generation using a quantized transformer model (e.g., Deepseek, Mistral, or Meta's LLaMA)
+Streamlit UI for interactive prompt construction and live editing
 Built for efficient inference on consumer GPUs (RTX 3060) using 8-bit quantization.
 
-🎯 Use Case
-Give it:
 
-A task like:
-Modify classify_data function to rename variable unique_classes to different_classes
-
-A directory of code files
-
-And it will:
-
-Retrieve the most relevant file(s)
-
-Rerank results with a cross-encoder
-
-Feed context + task into an LLM
-
-Return and save the generated fix
 
 🧱 Architecture
-           ┌─────────────┐
-           │  Query Input│◄────────────┐
-           └─────┬───────┘             │
-                 ▼                     │
-        ┌──────────────────┐          ▼
-        │  FAISS Vector DB │ <── Code Embeddings
-        └────────┬─────────┘
-                 ▼
-        ┌───────────────────────┐
-        │ CrossEncoder Reranker│
-        └────────┬──────────────┘
-                 ▼
-           Context + Task
-                 ▼
-          ┌────────────┐
-          │ Quantized  │
-          │  LLM (Q8)  │
-          └─────┬──────┘
-                ▼
-          Suggested Fix
+
+
+![image](https://github.com/user-attachments/assets/fa3a3c98-3a65-4454-9677-873d271c8002)
+
+  
 ⚙️ Features
 ✅ File-aware retrieval (e.g., query: “Modify testb.py…” limits scope)
 
@@ -68,40 +33,21 @@ Return and save the generated fix
 ✅ Streamlit UI with live input, output, and cache clearing
 
 🖥️ UI Snapshot
+![Screenshot 2025-05-29 032036](https://github.com/user-attachments/assets/43b5745c-c4a4-4e9e-94cf-03c3e15bc46c)
 
-🧪 Example Prompt
-Input:
-
-Modify testb.py so it uses Meta’s LLaMA LLM instead of Deepseek
-
-Generated Fix:
-
-python
-Copy
-Edit
-model_name = "meta-llama/Llama-2-7b-chat-hf"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
 📦 Setup Instructions
-🧰 Requirements
+
+Requirements
 Python 3.9+
-
 CUDA-enabled GPU (recommended: RTX 3060+)
-
 Packages:
-
-bash
-Copy
-Edit
 pip install torch torchvision
 pip install sentence-transformers faiss-cpu transformers accelerate bitsandbytes
 pip install streamlit scikit-learn
 
 ▶️ Run the App
-bash
-Copy
-Edit
-streamlit run try.py
+
+streamlit run assistant.py
 
 🧠 Models Used
 Component	Model Name
