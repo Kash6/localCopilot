@@ -11,8 +11,6 @@ LLM-based fix generation using a quantized transformer model (e.g., Deepseek, Mi
 Streamlit UI for interactive prompt construction and live editing
 Built for efficient inference on consumer GPUs (RTX 3060) using 8-bit quantization.
 
-
-
 🧱 Architecture
 
 
@@ -20,19 +18,18 @@ Built for efficient inference on consumer GPUs (RTX 3060) using 8-bit quantizati
 
   
 ⚙️ Features
-✅ File-aware retrieval (e.g., query: “Modify testb.py…” limits scope)
+File-aware retrieval (e.g., query: “Modify testb.py…” limits scope)
 
-✅ Automatic reranking via cross-encoder/ms-marco-MiniLM-L-6-v2
+Automatic reranking via cross-encoder/ms-marco-MiniLM-L-6-v2
 
-✅ Support for 8-bit quantized models using BitsAndBytesConfig
+Support for 8-bit quantized models using BitsAndBytesConfig
 
-✅ On-device inference (tested on RTX 3060, 6GB VRAM)
+On-device inference (tested on RTX 3060, 6GB VRAM)
 
-✅ Token-aware trimming and output parsing
+Token-aware trimming and output parsing
 
-✅ Streamlit UI with live input, output, and cache clearing
+Streamlit UI with live input, output, and cache clearing
 
-🖥️ UI Snapshot
 ![Screenshot 2025-05-29 032036](https://github.com/user-attachments/assets/43b5745c-c4a4-4e9e-94cf-03c3e15bc46c)
 
 📦 Setup Instructions
@@ -45,11 +42,11 @@ pip install torch torchvision
 pip install sentence-transformers faiss-cpu transformers accelerate bitsandbytes
 pip install streamlit scikit-learn
 
-▶️ Run the App
+▶ Run the App
 
 streamlit run assistant.py
 
-🧠 Models Used
+Models Used
 Component	Model Name
 Embedding Model	all-MiniLM-L6-v2 (SentenceTransformer)
 Reranker	cross-encoder/ms-marco-MiniLM-L-6-v2
