@@ -1,5 +1,8 @@
 ![alt text](image.png)
 
+---
+Demo  at https://huggingface.co/spaces/Kash6/local_copilot
+--- 
 
 # AI-Powered Coding Assistant
 
