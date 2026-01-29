@@ -13,10 +13,6 @@ qdrant-client>=1.7.0
 langchain>=0.1.0
 langchain-community>=0.0.10
 
-# Training (optional for HF Spaces)
-# trl>=0.7.0
-# datasets>=2.14.0
-
 # UI
 streamlit>=1.29.0
 
